@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Ediciones Saberum</title>
+    <link rel="stylesheet" href="../CSS/index.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ediciones Saberum</h1>
+            <p>Ven, lee y saborea el conocimiento</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Catálogo</a></li>
+                <li><a href="Panel_de_Usuario.html">Mi Cuenta</a></li>
+                <li><a href="Solicitud_de_Préstamo.html">Reservas</a></li>
+                <li><a href="Panel_de_Usuario.html">Préstamos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <h2>Búsqueda en Catálogo</h2>
+            <div class="search-form">
+                <input type="text" id="search-term" placeholder="Título, autor, ISBN...">
+                <select id="language-filter">
+                    <option value="">Todos los idiomas</option>
+                    <option value="español">Español</option>
+                    <option value="inglés">Inglés</option>
+                    <option value="francés">Francés</option>
+                </select>
+                <select id="topic-filter">
+                    <option value="">Todas las áreas</option>
+                    <option value="ficcion">Ficción</option>
+                    <option value="ciencia">Ciencia</option>
+                    <option value="historia">Historia</option>
+                </select>
+                <button id="search-btn">Buscar</button>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <h2>Resultados de búsqueda</h2>
+            <div id="results-container">
+                <!-- Los resultados se cargarán dinámicamente -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Ediciones Saberum. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../JS/index.js"></script>
+</body>
+</html>

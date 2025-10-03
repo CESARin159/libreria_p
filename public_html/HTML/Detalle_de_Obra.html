@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Obra - Ediciones Saberum</title>
+    <link rel="stylesheet" href="../CSS/Detalle_de_Obra_.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ediciones Saberum</h1>
+            <p>Ven, lee y saborea el conocimiento</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Catálogo</a></li>
+                <li><a href="Panel_de_Usuario.html">Mi Cuenta</a></li>
+                <li><a href="Solicitud_de_Préstamo.html">Reservas</a></li>
+                <li><a href="Panel_de_Usuario.html">Préstamos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="breadcrumb">
+            <a href="index.html">Catálogo</a> > 
+            <span id="breadcrumb-title">Detalle de Obra</span>
+        </div>
+
+        <section class="book-detail">
+            <div class="book-cover">
+                <img id="book-image" src="" alt="Portada del libro">
+                <div class="availability-status" id="availability-status">
+                    <!-- Estado de disponibilidad se carga dinámicamente -->
+                </div>
+            </div>
+            
+            <div class="book-info">
+                <h1 id="book-title">Título del Libro</h1>
+                <p class="author" id="book-author">Autor del Libro</p>
+                <div class="book-meta">
+                    <div class="meta-item">
+                        <strong>ISBN:</strong> <span id="book-isbn">978-XXXX-XXXXX-X</span>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Idioma:</strong> <span id="book-language">Español</span>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Área temática:</strong> <span id="book-topic">Ficción</span>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Año de publicación:</strong> <span id="book-year">2023</span>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Número de páginas:</strong> <span id="book-pages">350</span>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Editorial:</strong> <span id="book-publisher">Ediciones Saberum</span>
+                    </div>
+                </div>
+                
+                <div class="book-description">
+                    <h3>Descripción</h3>
+                    <p id="book-description-text">Descripción detallada del libro...</p>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="loan-btn" class="btn-primary">Solicitar Préstamo</button>
+                    <button id="reserve-btn" class="btn-secondary">Reservar</button>
+                    <button id="back-btn" class="btn-outline">Volver al Catálogo</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-books">
+            <h2>Obras relacionadas</h2>
+            <div id="related-books-container">
+                <!-- Libros relacionados se cargan dinámicamente -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Ediciones Saberum. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../JS/Detalle_de_Obra_j_.js"></script>
+</body>
+</html>

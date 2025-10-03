@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Usuarios y Reportes</title>
+    <link rel="stylesheet" href="../CSS/Gestion_Usuarios_Reportes.css">
+</head>
+<body>
+    <header>
+        <h1>Gestión de Usuarios y Reportes</h1>
+    </header>
+
+    <main>
+        <!-- Sección para gestionar usuarios -->
+        <section class="card">
+            <h2>Gestión de Usuarios</h2>
+            <form id="formUsuarios">
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" placeholder="Nombre de usuario" required>
+
+                <label for="accion">Acción:</label>
+                <select id="accion" required>
+                    <option value="">Seleccione acción</option>
+                    <option value="registrar">Registrar</option>
+                    <option value="asignar">Asignar rol</option>
+                    <option value="bloquear">Bloquear</option>
+                </select>
+
+                <label for="rol">Rol:</label>
+                <select id="rol">
+                    <option value="lector">Lector</option>
+                    <option value="bibliotecario">Bibliotecario</option>
+                    <option value="administrador">Administrador</option>
+                </select>
+
+                <button type="submit">Procesar</button>
+            </form>
+            <p id="resultadoUsuarios"></p>
+        </section>
+
+        <!-- Sección configuración de parámetros -->
+        <section class="card">
+            <h2>Parámetros Globales</h2>
+            <form id="formParametros">
+                <label for="dias">Días de préstamo:</label>
+                <input type="number" id="dias" value="7" min="1">
+
+                <label for="multa">Multa diaria (S/):</label>
+                <input type="number" id="multa" value="1.50" step="0.10" min="0">
+
+                <button type="submit">Guardar Configuración</button>
+            </form>
+            <p id="resultadoParametros"></p>
+        </section>
+
+        <!-- Sección generación de reportes -->
+        <section class="card">
+            <h2>Generación de Reportes</h2>
+            <form id="formReportes">
+                <label for="tipoReporte">Tipo de reporte:</label>
+                <select id="tipoReporte" required>
+                    <option value="">Seleccione</option>
+                    <option value="prestamos">Préstamos</option>
+                    <option value="morosidad">Morosidad</option>
+                </select>
+
+                <label for="formato">Formato:</label>
+                <select id="formato" required>
+                    <option value="">Seleccione</option>
+                    <option value="pdf">PDF</option>
+                    <option value="excel">Excel</option>
+                </select>
+
+                <button type="submit">Generar Reporte</button>
+            </form>
+            <p id="resultadoReportes"></p>
+        </section>
+    </main>
+
+    <script src="../JS/Gestion_Usuarios_Reportes.js"></script>
+</body>
+</html>

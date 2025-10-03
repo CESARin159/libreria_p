@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta - Ediciones Saberum</title>
+    <link rel="stylesheet" href="../CSS/Panel_de_Usuario_.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ediciones Saberum</h1>
+            <p>Ven, lee y saborea el conocimiento</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Catálogo</a></li>
+                <li><a href="Panel_de_Usuario.html" class="active">Mi Cuenta</a></li>
+                <li><a href="Solicitud_de_Préstamo.html">Reservas</a></li>
+                <li><a href="Panel_de_Usuario.html">Préstamos</a></li>
+                <li><a href="#" id="logout-btn">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="user-dashboard">
+            <aside class="user-sidebar">
+                <div class="user-profile">
+                    <div class="profile-avatar">
+                        <img src="https://via.placeholder.com/80x80/3498db/ffffff?text=U" alt="Avatar del usuario" id="user-avatar">
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="user-name">Nombre del Usuario</h2>
+                        <p id="user-email">usuario@email.com</p>
+                        <p id="user-type">Tipo: Socio</p>
+                        <p id="user-status" class="status-active">Estado: Activo</p>
+                    </div>
+                </div>
+
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li><a href="#prestamos-activos" class="nav-link active" data-tab="prestamos-activos">Préstamos Activos</a></li>
+                        <li><a href="#reservas-pendientes" class="nav-link" data-tab="reservas-pendientes">Reservas Pendientes</a></li>
+                        <li><a href="#historial-prestamos" class="nav-link" data-tab="historial-prestamos">Historial de Préstamos</a></li>
+                        <li><a href="#multas" class="nav-link" data-tab="multas">Multas y Sanciones</a></li>
+                        <li><a href="#perfil" class="nav-link" data-tab="perfil">Mi Perfil</a></li>
+                        <li><a href="#notificaciones" class="nav-link" data-tab="notificaciones">Notificaciones</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <section class="user-content">
+                <!-- Pestaña: Préstamos Activos -->
+                <div id="prestamos-activos" class="tab-content active">
+                    <div class="tab-header">
+                        <h2>Préstamos Activos</h2>
+                        <div class="tab-stats">
+                            <span class="stat-item">
+                                <strong id="active-loans-count">0</strong> préstamos activos
+                            </span>
+                            <span class="stat-item">
+                                <strong id="near-due-count">0</strong> por vencer
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="loans-list" id="active-loans-list">
+                        <!-- Los préstamos activos se cargan dinámicamente -->
+                    </div>
+
+                    <div class="empty-state" id="empty-active-loans" style="display: none;">
+                        <div class="empty-icon">📚</div>
+                        <h3>No tienes préstamos activos</h3>
+                        <p>Visita nuestro catálogo para encontrar libros interesantes.</p>
+                        <a href="index.html" class="btn-primary">Explorar Catálogo</a>
+                    </div>
+                </div>
+
+                <!-- Pestaña: Reservas Pendientes -->
+                <div id="reservas-pendientes" class="tab-content">
+                    <div class="tab-header">
+                        <h2>Reservas Pendientes</h2>
+                        <div class="tab-stats">
+                            <span class="stat-item">
+                                <strong id="pending-reservations-count">0</strong> reservas activas
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="reservations-list" id="reservations-list">
+                        <!-- Las reservas se cargan dinámicamente -->
+                    </div>
+
+                    <div class="empty-state" id="empty-reservations" style="display: none;">
+                        <div class="empty-icon">⏳</div>
+                        <h3>No tienes reservas pendientes</h3>
+                        <p>Puedes reservar libros que estén actualmente prestados.</p>
+                        <a href="index.html" class="btn-primary">Buscar Libros</a>
+                    </div>
+                </div>
+
+                <!-- Pestaña: Historial de Préstamos -->
+                <div id="historial-prestamos" class="tab-content">
+                    <div class="tab-header">
+                        <h2>Historial de Préstamos</h2>
+                        <div class="history-filters">
+                            <select id="history-period">
+                                <option value="30">Últimos 30 días</option>
+                                <option value="90">Últimos 3 meses</option>
+                                <option value="365">Último año</option>
+                                <option value="all">Todo el historial</option>
+                            </select>
+                            <button id="export-history" class="btn-outline">Exportar a PDF</button>
+                        </div>
+                    </div>
+
+                    <div class="history-list" id="loan-history-list">
+                        <!-- El historial se carga dinámicamente -->
+                    </div>
+
+                    <div class="empty-state" id="empty-history" style="display: none;">
+                        <div class="empty-icon">📖</div>
+                        <h3>No hay historial de préstamos</h3>
+                        <p>Tu historial de préstamos aparecerá aquí.</p>
+                    </div>
+                </div>
+
+                <!-- Pestaña: Multas y Sanciones -->
+                <div id="multas" class="tab-content">
+                    <div class="tab-header">
+                        <h2>Multas y Sanciones</h2>
+                        <div class="tab-stats">
+                            <span class="stat-item">
+                                Total pendiente: <strong id="total-fines">S/ 0.00</strong>
+                            </span>
+                            <span class="stat-item">
+                                <strong id="pending-fines-count">0</strong> multas pendientes
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="fines-list" id="fines-list">
+                        <!-- Las multas se cargan dinámicamente -->
+                    </div>
+
+                    <div class="empty-state" id="empty-fines" style="display: none;">
+                        <div class="empty-icon">✅</div>
+                        <h3>No tienes multas pendientes</h3>
+                        <p>¡Mantén tus préstamos al día!</p>
+                    </div>
+
+                    <div class="payment-section" id="payment-section" style="display: none;">
+                        <h3>Pagar Multas</h3>
+                        <div class="payment-options">
+                            <button class="payment-method" data-method="yape">
+                                <img src="https://via.placeholder.com/40x40/27ae60/ffffff?text=Y" alt="Yape">
+                                <span>Pagar con Yape</span>
+                            </button>
+                            <button class="payment-method" data-method="tarjeta">
+                                <img src="https://via.placeholder.com/40x40/3498db/ffffff?text=T" alt="Tarjeta">
+                                <span>Pagar con Tarjeta</span>
+                            </button>
+                            <button class="payment-method" data-method="efectivo">
+                                <img src="https://via.placeholder.com/40x40/95a5a6/ffffff?text=E" alt="Efectivo">
+                                <span>Pagar en Efectivo</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pestaña: Mi Perfil -->
+                <div id="perfil" class="tab-content">
+                    <div class="tab-header">
+                        <h2>Mi Perfil</h2>
+                    </div>
+
+                    <form id="profile-form" class="profile-form">
+                        <div class="form-section">
+                            <h3>Información Personal</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="profile-dni">DNI *</label>
+                                    <input type="text" id="profile-dni" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-name">Nombres *</label>
+                                    <input type="text" id="profile-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-lastname">Apellidos *</label>
+                                    <input type="text" id="profile-lastname" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-email">Correo Electrónico *</label>
+                                    <input type="email" id="profile-email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-phone">Teléfono</label>
+                                    <input type="tel" id="profile-phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-address">Dirección</label>
+                                    <textarea id="profile-address" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Cambiar Contraseña</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="current-password">Contraseña Actual</label>
+                                    <input type="password" id="current-password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="new-password">Nueva Contraseña</label>
+                                    <input type="password" id="new-password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-password">Confirmar Contraseña</label>
+                                    <input type="password" id="confirm-password">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Guardar Cambios</button>
+                            <button type="button" id="cancel-changes" class="btn-outline">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Pestaña: Notificaciones -->
+                <div id="notificaciones" class="tab-content">
+                    <div class="tab-header">
+                        <h2>Notificaciones</h2>
+                        <div class="notification-actions">
+                            <button id="mark-all-read" class="btn-outline">Marcar todas como leídas</button>
+                            <button id="clear-notifications" class="btn-outline">Limpiar notificaciones</button>
+                        </div>
+                    </div>
+
+                    <div class="notifications-list" id="notifications-list">
+                        <!-- Las notificaciones se cargan dinámicamente -->
+                    </div>
+
+                    <div class="empty-state" id="empty-notifications" style="display: none;">
+                        <div class="empty-icon">🔔</div>
+                        <h3>No tienes notificaciones</h3>
+                        <p>Las notificaciones importantes aparecerán aquí.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal para pagos -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Pago de Multas</h3>
+                <button id="close-payment-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="payment-content">
+                    <!-- Contenido del pago se carga dinámicamente -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="confirm-payment" class="btn-primary">Confirmar Pago</button>
+                <button id="cancel-payment" class="btn-outline">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ediciones Saberum. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../JS/Panel_de_Usuario_J_.js"></script>
+</body>
+</html>

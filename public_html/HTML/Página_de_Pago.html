@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago - Ediciones Saberum</title>
+    <link rel="stylesheet" href="../CSS/Página_de_Pago_.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ediciones Saberum</h1>
+            <p>Ven, lee y saborea el conocimiento</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Catálogo</a></li>
+                <li><a href="Panel_de_Usuario.html">Mi Cuenta</a></li>
+                <li><a href="Solicitud_de_Préstamo.html">Reservas</a></li>
+                <li><a href="Panel_de_Usuario.html">Préstamos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="breadcrumb">
+            <a href="Panel_de_Usuario.html">Mi Cuenta</a> > 
+            <span>Pago</span>
+        </div>
+
+        <div class="payment-container">
+            <div class="payment-header">
+                <h1>Proceso de Pago</h1>
+                <div class="payment-steps">
+                    <div class="step active">1. Resumen</div>
+                    <div class="step">2. Método de Pago</div>
+                    <div class="step">3. Confirmación</div>
+                </div>
+            </div>
+
+            <!-- Paso 1: Resumen del Pago -->
+            <div id="step-summary" class="payment-step active">
+                <div class="payment-summary">
+                    <h2>Resumen del Pago</h2>
+                    <div class="summary-details">
+                        <div class="summary-item">
+                            <h3>Detalles de la Transacción</h3>
+                            <div class="details-list" id="transaction-details">
+                                <!-- Los detalles se cargan dinámicamente -->
+                            </div>
+                        </div>
+
+                        <div class="summary-item">
+                            <h3>Cantidad(es) a Pagar</h3>
+                            <div class="fines-list" id="fines-summary">
+                                <!-- Las multas se cargan dinámicamente -->
+                            </div>
+                            <div class="total-amount">
+                                <strong>Total a Pagar: <span id="total-payment">S/ 0.00</span></strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-actions">
+                        <button id="continue-to-payment" class="btn-primary">Continuar al Pago</button>
+                        <a href="Panel_de_Usuario.html" class="btn-outline">Volver al Panel</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paso 2: Selección de Método de Pago -->
+            <div id="step-payment-method" class="payment-step">
+                <div class="payment-method-selection">
+                    <h2>Seleccione Método de Pago</h2>
+                    
+                    <div class="payment-methods">
+                        <div class="payment-method-card" data-method="yape">
+                            <div class="method-header">
+                                <div class="method-icon">
+                                    <img src="../IMG/yape.png" alt="Yape">
+                                </div>
+                                <div class="method-info">
+                                    <h3>Yape</h3>
+                                    <p>Pago rápido y seguro</p>
+                                </div>
+                                <div class="method-radio">
+                                    <input type="radio" name="payment-method" id="yape-method" value="yape">
+                                </div>
+                            </div>
+                            <div class="method-details">
+                                <p>Paga instantáneamente con tu aplicación Yape</p>
+                            </div>
+                        </div>
+
+                        <div class="payment-method-card" data-method="tarjeta">
+                            <div class="method-header">
+                                <div class="method-icon">
+                                    <img src="../IMG/Cred_Debi.jpg" alt="Tarjeta">
+                                </div>
+                                <div class="method-info">
+                                    <h3>Tarjeta de Crédito/Débito</h3>
+                                    <p>Pago con tarjeta Visa, Mastercard</p>
+                                </div>
+                                <div class="method-radio">
+                                    <input type="radio" name="payment-method" id="card-method" value="tarjeta">
+                                </div>
+                            </div>
+                            <div class="method-details">
+                                <p>Proceso seguro con encriptación SSL</p>
+                            </div>
+                        </div>
+
+                        <div class="payment-method-card" data-method="transferencia">
+                            <div class="method-header">
+                                <div class="method-icon">
+                                    <img src="../IMG/transferencia.png" alt="Transferencia">
+                                </div>
+                                <div class="method-info">
+                                    <h3>Transferencia Bancaria</h3>
+                                    <p>Transferencia desde tu banco</p>
+                                </div>
+                                <div class="method-radio">
+                                    <input type="radio" name="payment-method" id="transfer-method" value="transferencia">
+                                </div>
+                            </div>
+                            <div class="method-details">
+                                <p>Datos bancarios para transferencia</p>
+                            </div>
+                        </div>
+
+                        <div class="payment-method-card" data-method="efectivo">
+                            <div class="method-header">
+                                <div class="method-icon">
+                                    <img src="../IMG/efectivo.png" alt="Efectivo">
+                                </div>
+                                <div class="method-info">
+                                    <h3>Pago en Efectivo</h3>
+                                    <p>Pago presencial en biblioteca</p>
+                                </div>
+                                <div class="method-radio">
+                                    <input type="radio" name="payment-method" id="cash-method" value="efectivo">
+                                </div>
+                            </div>
+                            <div class="method-details">
+                                <p>Acércate a nuestra sede para pagar</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-form-container" id="payment-form-container">
+                        <!-- Los formularios de pago se cargan dinámicamente según el método seleccionado -->
+                    </div>
+
+                    <div class="payment-actions">
+                        <button id="back-to-summary" class="btn-outline">Volver al Resumen</button>
+                        <button id="continue-to-confirm" class="btn-primary" disabled>Continuar a Confirmación</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paso 3: Confirmación del Pago -->
+            <div id="step-confirmation" class="payment-step">
+                <div class="payment-confirmation">
+                    <div class="confirmation-header">
+                        <div class="confirmation-icon">✓</div>
+                        <h2>¡Pago Procesado Exitosamente!</h2>
+                    </div>
+
+                    <div class="confirmation-details">
+                        <div class="confirmation-summary">
+                            <h3>Resumen de la Transacción</h3>
+                            <div id="confirmation-details-content">
+                                <!-- Los detalles de confirmación se cargan dinámicamente -->
+                            </div>
+                        </div>
+
+                        <div class="transaction-info">
+                            <h3>Información de la Transacción</h3>
+                            <div id="transaction-info-content">
+                                <!-- La información de la transacción se carga dinámicamente -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="confirmation-actions">
+                        <button id="print-receipt" class="btn-primary">Imprimir Comprobante</button>
+                        <button id="download-receipt" class="btn-secondary">Descargar PDF</button>
+                        <a href="Panel_de_Usuario.html" class="btn-outline">Volver al Panel de Usuario</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Ediciones Saberum. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../JS/Página_de_Pago_J_.js"></script>
+</body>
+</html>
